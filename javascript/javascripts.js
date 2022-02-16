@@ -1,37 +1,25 @@
-// income For me
-
-
-// calulate-total 
-document.getElementById('calulate-total').addEventListener('click', function(){
-    // total food value
-
+// Food Rent clothes all id in one function
+function addCostAmount(){
     const foodPrice =document.getElementById('Food-price');
-    const foodValue = parseFloat(foodPrice.value);
-    foodPrice.value = foodValue;
-    // total rent
-
     const rentTotal =document.getElementById('Rent-Total');
-    const rentValue = parseFloat(rentTotal.value);
-    rentTotal.value = rentValue;
-    // clothes
     const clothesTotal =document.getElementById('clothes-total');
-    const clothesValue = parseFloat(clothesTotal.value);
-    clothesTotal.value = clothesValue;
-    // total calculate
-    const totalCalculate = foodValue + rentValue + clothesValue
-    const expenses = document.getElementById('total-expenses');
-    expenses.innerText= totalCalculate;
+    const totalCalculate = parseFloat(foodPrice.value) + parseFloat(rentTotal.value) + parseFloat(clothesTotal.value)
+    return totalCalculate;
+}
 
-    // income odd balance
-    const incomeId = document.getElementById('incomeTotal');
-    const incomeIdValue = parseFloat(incomeId.value);
-    const total= incomeIdValue - totalCalculate;
-    const totalBalance =document.getElementById('total-balance')
-    totalBalance.innerText = total;
+
+// calulate-total for myIncome and OddTotalBalance
+document.getElementById('calulate-total').addEventListener('click', function(){
+    
+    // function call add kore
+    document.getElementById('total-expenses').innerText=addCostAmount();
+    const myIncomeInput = document.getElementById('incomeTotal');
+    const oddTotalBalance = parseFloat(myIncomeInput.value) - addCostAmount();
+    document.getElementById('total-balance').innerText= oddTotalBalance;
     
 
 })
-// saved-button with tax
+// saved-button without tax
 
 document.getElementById('saved-button').addEventListener('click', function(){
     // save value 
@@ -40,13 +28,11 @@ document.getElementById('saved-button').addEventListener('click', function(){
      // income
      const incomeId = document.getElementById('incomeTotal');
      const incomeIdValue = parseFloat(incomeId.value);
-
      const savingAmount = (incomeIdValue * saveNumber) / 100;
      document.getElementById('save-amount').innerText= savingAmount;
     //   balance
     const balances = document.getElementById('total-balance').innerText
     const balanceNumber =parseFloat(balances)
     document.getElementById('remaining-balance').innerText = balanceNumber - savingAmount;
-
 
 })
