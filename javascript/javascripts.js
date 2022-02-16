@@ -31,3 +31,22 @@ document.getElementById('calulate-total').addEventListener('click', function(){
     
 
 })
+// saved-button with tax
+
+document.getElementById('saved-button').addEventListener('click', function(){
+    // save value 
+    const saveInput =document.getElementById('save-input')
+    const saveNumber = parseFloat(saveInput.value);
+     // income
+     const incomeId = document.getElementById('incomeTotal');
+     const incomeIdValue = parseFloat(incomeId.value);
+
+     const savingAmount = (incomeIdValue * saveNumber) / 100;
+     document.getElementById('save-amount').innerText= savingAmount;
+    //   balance
+    const balances = document.getElementById('total-balance').innerText
+    const balanceNumber =parseFloat(balances)
+    document.getElementById('remaining-balance').innerText = balanceNumber - savingAmount;
+
+
+})
