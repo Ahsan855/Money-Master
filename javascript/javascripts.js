@@ -7,15 +7,14 @@ function addCostAmount(){
     return totalCalculate;
 }
 
-
 // calulate-total for myIncome and OddTotalBalance
 document.getElementById('calulate-total').addEventListener('click', function(){
-    
     // function call add kore
     document.getElementById('total-expenses').innerText=addCostAmount();
     const myIncomeInput = document.getElementById('incomeTotal');
     const oddTotalBalance = parseFloat(myIncomeInput.value) - addCostAmount();
     document.getElementById('total-balance').innerText= oddTotalBalance;
+    
     
 
 })
@@ -35,4 +34,4 @@ document.getElementById('saved-button').addEventListener('click', function(){
     const balanceNumber =parseFloat(balances)
     document.getElementById('remaining-balance').innerText = balanceNumber - savingAmount;
 
-})
+});
